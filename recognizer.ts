@@ -5,6 +5,8 @@
 
 "use strict";
 
+import { KeywordRecognitionModel, SpeechRecognizer } from "microsoft-cognitiveservices-speech-sdk";
+
 // Notes:
 // - To install dependencies for this sample:
 // npm install microsoft-cognitiveservices-speech-sdk
@@ -388,8 +390,14 @@ function main(args)
         var userConfig = UserConfigFromArgs(args, usage);
         Initialize(userConfig);    
         var audio_config = AudioConfigFromUserConfig(userConfig);
-        var speechRecognizer = SpeechRecognizerFromUserConfig(userConfig);
-        RecognizeContinuous(speechRecognizer, userConfig);
+        var speechRecognizer:SpeechRecognizer = SpeechRecognizerFromUserConfig(userConfig);
+        
+        //not implemented
+        let model: KeywordRecognitionModel=KeywordRecognitionModel.fromFile("bfa17bcf-8289-4514-8b01-22d02f16ca00.table");
+        speechRecognizer.startKeywordRecognitionAsync(model,()=>{
+            console.log("keyword recognized")
+        });
+        //RecognizeContinuous(speechRecognizer, userConfig);
     }
 }
 

@@ -349,6 +349,7 @@ function RecognizeContinuous(speechRecognizer, userConfig)
 
 function main(args)
 {
+    //node captioning.js --key 51942be675574fec9888a68adde9cc00 --region westeurope
     var usage = `Usage: node captioning.js [...]
 
   HELP
@@ -389,6 +390,16 @@ function main(args)
         Initialize(userConfig);    
         var audio_config = AudioConfigFromUserConfig(userConfig);
         var speechRecognizer = SpeechRecognizerFromUserConfig(userConfig);
+
+/* KeywordRecognitionModel.fromFile is not implemented 
+
+        let model=sdk.KeywordRecognitionModel.fromFile("bfa17bcf-8289-4514-8b01-22d02f16ca00.table");
+        speechRecognizer.startKeywordRecognitionAsync(model,()=>{
+            console.log("keyword recognized xxxxxxxxxxxxxxxxxxxxxx");
+        });
+        
+ */
+
         RecognizeContinuous(speechRecognizer, userConfig);
     }
 }

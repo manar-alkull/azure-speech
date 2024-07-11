@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node captioning.js --key 51942be675574fec9888a68adde9cc00 --region westeurope"
+  },
+
   "dependencies": {
     "microsoft-cognitiveservices-speech-sdk": "^1.38.0"
   }
