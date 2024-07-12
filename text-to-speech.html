@@ -68,7 +68,7 @@
       </tr>
       <tr>
         <td align="right"><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
-        <td><input id="subscriptionKey" type="text" size="40" placeholder="YourSubscriptionKey" value="51942be675574fec9888a68adde9cc00"></td>
+        <td><input id="subscriptionKey" type="text" size="40" placeholder="YourSubscriptionKey" ></td>
       </tr>
       <tr>
         <td align="right">Region</td>
@@ -91,6 +91,7 @@
 
   <!-- Speech SDK reference sdk. -->
   <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+  <script src="env.js"></script>
 
   <!-- Speech SDK USAGE -->
   <script>
@@ -103,6 +104,9 @@
     var subscriptionKey, serviceRegion;
     var SpeechSDK;
     var synthesizer;
+
+    //TODO change API key
+    document.getElementById("subscriptionKey").value=env.API_KEY;
 
     document.addEventListener("DOMContentLoaded", function () {
       startSpeakTextAsyncButton = document.getElementById("startSpeakTextAsyncButton");
